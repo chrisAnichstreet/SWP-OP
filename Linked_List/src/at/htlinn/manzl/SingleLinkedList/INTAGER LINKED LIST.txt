@@ -1,0 +1,72 @@
+package at.htlinn.manzl;
+
+public class LinkedList {
+    private Node head = null;
+    private int counter = 0;
+    private int index = 0;
+    public LinkedList()
+    {
+
+    }
+    public void add(int value)
+    {
+        //list is empty
+        Node node = new Node(value);
+        if(head == null)
+        {
+            head = node;
+            return;
+        }
+        //list has got one element
+        if(head.getNext() == null)
+        {
+            head.setNext(node);
+            return;
+        }
+
+
+
+
+
+        Node tmp = head;
+        while ((tmp.getNext() != null)||(counter == index)){
+            tmp = tmp.getNext();
+            counter++;
+        }
+        //Hier muss jetzt der neue Node eingeflickt werden!
+        //Node buffer = tmp.getNext();
+        tmp.setNext(node);
+
+
+    }
+    public int getFrom(int index)
+    {
+        counter =0;
+        this.index = index;
+        return hop(head).getValue();
+
+
+    }
+    public Node hop(Node pointer)
+    {
+        if(counter == index)
+        {
+            return pointer;
+        }
+        else{counter++;}
+
+        return (hop(pointer.getNext()));
+    }
+    public void delete(int index)
+    {
+        counter =0;
+        this.index = index;
+        Node tempNode = null;
+        tempNode =hop(head);
+
+        counter=0;
+        this.index = index-1;
+        hop(head).setNext(tempNode.getNext());
+    }
+
+}
