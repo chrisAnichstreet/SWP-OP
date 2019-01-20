@@ -1,4 +1,4 @@
-package at.htlinn.manzl;
+﻿package at.htlinn.manzl;
 
 public class pulls
 {
@@ -110,44 +110,57 @@ public class pulls
         log term = Search(value, temp); //zu löschendes Element
         log pointterm = term;
 
-        log maxterm = Max(value, term); // Maximum des Linken Zweiges
+        log maxterm = Max(true,term); // Maximum des Linken Zweiges
         log pointmaxterm = maxterm;
 
-        log almostmax = AlMax(value,term); // Das Vorletzte Elemet vor dem Größten im linken Zweig (Um nach max. Folgende Nodes nicht zu verlieren)
+        log almostmax = AlMax(true, term ,maxterm); // Das Vorletzte Elemet vor dem Größten im linken Zweig (Um nach max. Folgende Nodes nicht zu verlieren)
 
         log aftermax = maxterm.getLeft(); // Das erste Element der Linken Reihe von max (Der Pointer auf das Element ist Max)
 
         //Beginn der Vertauschungen:
+
+	maxterm.setLeft(term.getLeft);
+	maxterm.setRight(term.getRight);
+	maxterm.setValue(term.getValue);
+
+
         term = maxterm;
         almostmax.setRight(aftermax);
     }
 
-    private log Max(int value, log temp){
+    private log Max(boolean run, log temp){
 
-        if (value > temp.getId()) {
-            if (temp.getRight() != null) {
-                temp = temp.getRight();
-                return Max(value,temp);
+        if((run) && (temp.getLeft() != null)){
+            temp = temp.getLeft();
+            run = false;
+            return Max(run,temp);
+        }
 
-            }
+        if (temp.getRight() != null) {
+            temp = temp.getRight();
+            return Max(false,temp);
 
         }
         return temp;
     }
 
-    private log AlMax(int value, log temp){
+    private log AlMax(boolean run, log temp, log maxterm){
 
-        log almostmax = temp;
-        if (value > temp.getId()) {
-            if (temp.getRight() != null) {
-                almostmax = temp;
-                temp = temp.getRight();
-                return AlMax(value,temp);
-
-            }
-
+        if((run) && (temp.getLeft() != null)){
+            temp = temp.getLeft();
+            run = false;
+            return Max(run,temp);
         }
-        return almostmax;
+
+        if ((temp.getRight() != null) && (maxterm != temp.getRight()) ){
+            temp = temp.getRight();
+            return Max(false,temp);
+
+        }else {
+
+            return temp;
+        }
+
     }
 
 
