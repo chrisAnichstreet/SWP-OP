@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Notenuebersicht</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        .jumbotron {
+            background-color: #349AED;
+            color: #fff;
+            padding: 25px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        th {
+            background-color: #2c5363;
+            color: white;
+        }
+
+        .container2 
+        {
+            position:absolute;
+            bottom:0;
+            right:0;
+        }
+
+    </style>
+
+
+
+</head>
+
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Notenuebersicht</h1>
+        <p>{{schueler.first_name}} {{schueler.last_name}}</p>
+    </div>
+
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fach</th>
+                        <th>Note</th>
+                        <th>Lehrer</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for n in noten %}
+                    <tr>
+                        <td>{{n.u_id.f_id.fach_name}}</td>
+                        <td>{{n.note}}</td>
+                        <td>{{n.u_id.l_id.first_name}} {{n.u_id.l_id.last_name}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="btn-holder">
+            <a href="{%url 'Schulnotenerfassung:mylogout' %}" class="btn btn-danger btn-lg">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</html>

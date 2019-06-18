@@ -25,11 +25,16 @@ public class Main {
         System.out.println(tree.Get(2));
 
         tree.Delete(17);
-        System.out.println(17);
-
-        System
 
 
+        System.out.println("Jetz Sollte 17 Gelöscht sein ! (Sollte)");
+        System.out.println(tree.Get(17));
+        System.out.println(tree.Get(8));
+        System.out.println(tree.Get(9));
+        System.out.println(tree.Get(10));
+        System.out.println(tree.Get(12));
+        System.out.println(tree.Get(11));
+        System.out.println(tree.Get(2));
 
 
     }

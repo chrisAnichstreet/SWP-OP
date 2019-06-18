@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Notenuebersicht</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        .jumbotron {
+            background-color: #349AED;
+            color: #fff;
+            padding: 25px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        th {
+            background-color: #2c5363;
+            color: white;
+        }
+
+        .container2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+
+
+
+</head>
+
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Lehrerseite</h1>
+        <h2>Schueleransicht der Klasse {{k}} des Faches {{f}}</h2>
+        <p>{{lehrer.first_name}} {{lehrer.last_name}}</p>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li>
+                    <a href="{% url 'Schulnotenerfassung:lehrer' %}">Klassen</a>
+                </li>
+                <li>
+                    <a href="{% url 'Schulnotenerfassung:klassenansicht' k.k_id%}">Faecher</a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'Schulnotenerfassung:fachansicht' k.k_id f.f_id%}">Schueler</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+            <div class="container">
+                <form method="post" action="/postala">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vorname</th>
+                                <th>Nachname</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for s in schueler %}
+                            <tr>
+                                <td>{{s.first_name}}</td>
+                                <td>{{s.last_name}}</td>
+                                <td><input name="{{s.id}}_{{uf.id}}" type="number" max="5" min="1" required/></td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                    <input type="submit"/>
+                    <input type="text" hidden name="csrfmiddlewaretoken" id="csrftoken"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="container2">
+        <div class="btn-holder">
+            <a href="{%url 'Schulnotenerfassung:mylogout' %}" class="btn btn-danger btn-lg">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $(function () {
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+        $("#csrftoken").val(csrftoken);
+    });
+</script>
+</html>
