@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Mark</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    th {
+        background-color: #8ae7f2;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #22a8b7;
+    }
+
+
+
+    log a{
+        display: block;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        padding: 12px 12px;
+        text-decoration: none;
+        float: right;
+    }
+
+    log a:hover:not(.active) {
+        background-color: #8ae7f2;
+    }
+
+
+    .active {
+        background-color: #22a8b7;
+    }
+    .big {
+        font-size:  60px;
+        color:white;
+        float:left;
+    }
+
+</style>
+<body>
+
+<ul>
+    <div class="big">Notenübersicht</div>
+    <log><a href="#about">Logout</a></log>
+</ul>
+
+
+<div>Für den Benutzer: *Benutzer hier aus der Datenbank ahfragen*</div>
+<!--<div><a href="/Schulnotenerfassung/Schueler{{l.objects.all }}/">{{l.objects.all }}</a></div>-->
+<br>
+
+<div class="contanter">
+    <table class="table table-striped"  style="margin-left:1%;max-width:98% ">
+        <thead>
+        <tr>
+            <th>Fach</th>
+            <th>Note</th>
+            <th>Lehrer</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <!--<For Schleife mit der Größe der Tabelle der Schüler bzw Lehrer
+        Einfügung der Objecte, Stadartisiert:-->
+        <tr>
+            <td>Database Fach</td>
+            <td>Database Note </td>
+            <td>Lehrername</td>
+
+        </tr>
+
+        <tr>
+            <td>Mathe</td>
+            <td>2</td>
+            <td>Manfred Hallo</td>
+
+        </tr>
+        <tr>
+            <td>Englisch</td>
+            <td>1</td>
+            <td>July Dooly</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Mark</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+
+        margin-right: 10px;
+        width: 100%;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #2c5363;
+        color: white;
+    }
+
+</style>
+<body>
+<div> Das ist die Lehrer Ansicht !</div>
+<li>Dies sind die Exestierenden Lehrer:</li>
+<div><li><a href="/Schulnotenerfassung/lehreralle{{l.objects.all }}/">{{l.objects.all }}</a></li></div>
+
+<div class="contanter">
+    <table class="table table-striped"  style="margin-left:1%;max-width:98% ">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Note</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        //For Schleife mit der Größe der Tabelle der Schüler bzw Lehrer
+        //Einfügung der Objecte, Stadartisiert:
+        <tr>
+            <td>Database First Name</td>
+            <td>Database Last Name </td>
+            <td>Note</td>
+            <td>Database Email address</td>
+        </tr>
+
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>1</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>1</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

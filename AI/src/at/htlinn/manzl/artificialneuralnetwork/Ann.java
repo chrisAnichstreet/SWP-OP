@@ -98,6 +98,7 @@ public class Ann {
         matann.activationfunction((matann.Multipliacate(first_mat,second_mat)),third_mat);
     }
 
+    //Soll die Input List in einen Array convertieren
     public double[][] convert(List<Double> input)
     {
         double [][] converted = new double [0][input.size()];
@@ -109,6 +110,7 @@ public class Ann {
         return converted;
     }
 
+    //Soll die Wightmatrix List in einen Array Convertieren
     public double[][] convert(int hiddenlayer, List<Double> wightmatoneneuron)
     {
         //double [][] converted = new double [wmcontainer.get(hiddenlayer).size()][];
@@ -118,7 +120,7 @@ public class Ann {
         {
             //Quasi den Array der die Wight Matrix eines neurons Beschreibt soll vollständig in dieser Stelle des 2 Arrays (höhere Dimension des Arrays hinzugefügt werden.
             //Mein Problem: Ich kann nicht bestimmen wie lang der Array mit wights des Jeweiligen Neurons ist. Deshalb wäre es praktisch dies einfach in den double Array zu kiopiern => Recherche Internet
-            converted[i][]=wightmatoneneuron.get(i);
+            converted[i][].clone(wightmatoneneuron.get(i));
         }
 
         return converted;
