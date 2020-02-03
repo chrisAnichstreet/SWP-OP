@@ -30,6 +30,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -82,6 +83,8 @@ public class AndroidCameraApi extends AppCompatActivity {
     private HandlerThread mBackgroundThread;
     private SurfaceTexture mDummyPreview = new SurfaceTexture(1);
     private Surface mDummySurface = new Surface(mDummyPreview);
+    private TextView infoText;
+    private TextView modeText;
 
     @SuppressLint("InvalidWakeLockTag")
     @Override
@@ -93,6 +96,11 @@ public class AndroidCameraApi extends AppCompatActivity {
         textureView.setSurfaceTextureListener(textureListener);
         switchMode = (Button) findViewById(R.id.btn_switchMode);
         assert switchMode != null;
+        switchMode.setText("Information");
+        infoText = (TextView) findViewById(R.id.infoTextId);
+        infoText.setText("Undetected-Mode Activated");
+        modeText = (TextView) findViewById(R.id.modeTextId);
+        infoText.setText("HEHE");
 
         powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "tag");
@@ -105,7 +113,16 @@ public class AndroidCameraApi extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Villeicht eine kurze gebrauchsübersicht.
+                if(switchMode.getText()=="Information")
+                {
+                    switchMode.setText("Hide Information");
+                    infoText.setText("Press: Volume Down to capture a picture.\nPress: Volume Up to change to Undetacted-Mode.\nThe Undetected-Mode makes it possible to fully blacken your screen.\nTo achive this, the distance sensor (near the frontcamera) must be covered.\n Use a finger or a sticker to cover it.\nDo under no circumstances use this App to violate a persons privacy!!\nThis is not the intent of this App!\nIt is ment to help people, not to hurt them.");
+                }
+                else {
+
+                    infoText.setText("");
+                    switchMode.setText("Information");
+                }
             }
         });
     }
@@ -133,7 +150,7 @@ public class AndroidCameraApi extends AppCompatActivity {
             //This is called when the camera is open
             Log.e(TAG, "onOpened");
             cameraDevice = camera;
-            createCameraPreview(); //BILDVORSCHAU
+            //createCameraPreview(); //BILDVORSCHAU
         }
         @Override
         public void onDisconnected(CameraDevice camera) {
@@ -191,8 +208,8 @@ public class AndroidCameraApi extends AppCompatActivity {
             List<Surface> outputSurfaces = new ArrayList<Surface>(2);
 
             outputSurfaces.add(reader.getSurface());
-            //
 
+            //outputSurfaces.add(mDummySurface);
             outputSurfaces.add(new Surface(textureView.getSurfaceTexture()));
             final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
             captureBuilder.addTarget(reader.getSurface());
@@ -271,8 +288,8 @@ public class AndroidCameraApi extends AppCompatActivity {
             Surface surface = new Surface(texture);
             captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
 
-            final CaptureRequest.Builder captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-            setupFPS(captureBuilder);
+            final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+           
 
             cameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback(){
                 @Override
@@ -282,7 +299,7 @@ public class AndroidCameraApi extends AppCompatActivity {
                         return;
                     }
                     // When the session is ready, we start displaying the preview.
-                    cameraCaptureSessions = cameraCaptureSession;
+                    //cameraCaptureSessions = cameraCaptureSession;
 
                     //updatePreview();
                 }
@@ -377,7 +394,6 @@ public class AndroidCameraApi extends AppCompatActivity {
                     {
                         wakeLock.release();
                         proximityWakeLock.release();
-                        switchMode.setText("Undetected-Mode is OFF");
                         undetectedMode = false;
                         System.out.println("OFF!");
                     }
@@ -386,15 +402,15 @@ public class AndroidCameraApi extends AppCompatActivity {
                         wakeLock.acquire();
                         proximityWakeLock.acquire();
                         undetectedMode = true;
-                        switchMode.setText("Undetected-Mode is ON");
                         System.out.println("ON!");
+                        infoText.setText("Privacy");
                     }
 
                 }
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 if (action == KeyEvent.ACTION_DOWN) {
-                    System.out.println("--------------Well, picture will be taken!------------");
+                    System.out.println("--------------Well,a picture will be taken!------------");
                     takePicture();
 
                 }
@@ -404,11 +420,7 @@ public class AndroidCameraApi extends AppCompatActivity {
         }
     }
 
-    private void setupFPS(CaptureRequest.Builder builder){
-        if(fpsRange != null) {
-            builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, fpsRange);
-        }
-    }
+   
 
-    
+
 }
