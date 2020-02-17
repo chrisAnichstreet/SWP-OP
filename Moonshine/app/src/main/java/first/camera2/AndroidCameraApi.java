@@ -82,7 +82,7 @@ public class AndroidCameraApi extends AppCompatActivity {
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
     private SurfaceTexture mDummyPreview = new SurfaceTexture(1);
-    private Surface mDummySurface = new Surface(mDummyPreview);
+    //private Surface mDummySurface = new Surface(mDummyPreview);
     private TextView infoText;
     private TextView modeText;
 
@@ -150,7 +150,7 @@ public class AndroidCameraApi extends AppCompatActivity {
             //This is called when the camera is open
             Log.e(TAG, "onOpened");
             cameraDevice = camera;
-            //createCameraPreview(); //BILDVORSCHAU
+            createCameraPreview(); //BILDVORSCHAU
         }
         @Override
         public void onDisconnected(CameraDevice camera) {
@@ -287,9 +287,9 @@ public class AndroidCameraApi extends AppCompatActivity {
             texture.setDefaultBufferSize(imageDimension.getWidth(), imageDimension.getHeight());
             Surface surface = new Surface(texture);
             captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-
-            final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-           
+            captureRequestBuilder.addTarget(surface);
+            //final CaptureRequest.Builder captureBuilder =
+            cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
 
             cameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback(){
                 @Override
@@ -300,8 +300,8 @@ public class AndroidCameraApi extends AppCompatActivity {
                     }
                     // When the session is ready, we start displaying the preview.
                     //cameraCaptureSessions = cameraCaptureSession;
-
-                    //updatePreview();
+                    cameraCaptureSessions = cameraCaptureSession;
+                    updatePreview();
                 }
                 @Override
                 public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
@@ -318,7 +318,7 @@ public class AndroidCameraApi extends AppCompatActivity {
         try {
             cameraId = manager.getCameraIdList()[0];
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
-            StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+                StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
             assert map != null;
             imageDimension = map.getOutputSizes(SurfaceTexture.class)[0];
             // Add permission for camera and let user grant the permission
