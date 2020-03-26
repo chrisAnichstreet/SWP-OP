@@ -1,0 +1,9 @@
+DROP DATABASE sec_pw_db;
+CREATE DATABASE sec_pw_db;
+
+
+CREATE TABLE users(
+    user_id SERIAL NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
