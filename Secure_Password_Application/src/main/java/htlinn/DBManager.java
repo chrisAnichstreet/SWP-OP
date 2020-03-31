@@ -1,6 +1,7 @@
 package htlinn;
+
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -16,6 +17,7 @@ public class DBManager {
     private DataSource dataSource = null;
 
     DBManager (){
+
 
     }
 
@@ -48,7 +50,8 @@ public class DBManager {
     }
     public Connection getConnection ()throws SQLException
     {
-        Connection con = dataSource.getConnection();
+        //Connection con = dataSource.getConnection();
+        Connection con = c;
         System.out.println("Connection wird ausgegeben.");
         return con;
     }
@@ -118,6 +121,7 @@ public class DBManager {
         try
         {
             //hashed_password= BCrypt.hashpw(password,BCrypt.gensalt());
+            System.out.println("Hash: "+hashed_password);
             con = getConnection();
             st = con.prepareStatement("INSERT INTO users VALUES(username, hashed_password)");
             st.executeQuery();

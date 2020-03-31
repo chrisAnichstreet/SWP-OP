@@ -43,13 +43,13 @@ public class Listener_DBcreated_and_contextfinished implements ServletContextLis
     	String pth = ctx.getInitParameter("DBPATH");
     	String us = ctx.getInitParameter("DBUSER");
     	String pas = ctx.getInitParameter("DBPASSWORD");
-    	
-    	DBManager.getDBM().Initialize(dbr, pth, us, pas);
     	*/
+    	DBManager.getDBM().Initialize("org.postgresql.Driver", "jdbc:postgresql://localhost:5432/sec_pw_db","postgres", "1234");
+    	/*
     	//create database connection from init parameters and 
     	//https://coderanch.com/t/493245/java/parameter-web-xml-file
     	
-    	
+    	/*
     	try{
     		Context initContext = new InitialContext();
     		Context envContext = (Context)initContext.lookup("java:/comp/env");
@@ -57,6 +57,7 @@ public class Listener_DBcreated_and_contextfinished implements ServletContextLis
 	    	DBManager m = new DBManager().getDBM();
 	    	m.Initialize(dataSource);
     	}catch(Exception e){e.printStackTrace();}
+    	*/
     }
 	
 }
