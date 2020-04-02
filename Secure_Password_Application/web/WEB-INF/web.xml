@@ -27,4 +27,13 @@
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>homepage</servlet-name>
+        <servlet-class>htlinn.homepage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>homepage</servlet-name>
+        <url-pattern>/homepage</url-pattern>
+    </servlet-mapping>
 </web-app>

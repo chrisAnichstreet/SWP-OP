@@ -50,8 +50,8 @@ public class DBManager {
     }
     public Connection getConnection ()throws SQLException
     {
-        //Connection con = dataSource.getConnection();
-        Connection con = c;
+        Connection con = dataSource.getConnection();
+        //Connection con = c;
         System.out.println("Connection wird ausgegeben.");
         return con;
     }
@@ -81,7 +81,7 @@ public class DBManager {
                 }
 
             }
-            closeConnection(con,st);
+
 
         } catch (SQLException e) {
 
@@ -120,10 +120,12 @@ public class DBManager {
 
         try
         {
-            //hashed_password= BCrypt.hashpw(password,BCrypt.gensalt());
+            hashed_password= BCrypt.hashpw(password,BCrypt.gensalt());
             System.out.println("Hash: "+hashed_password);
             con = getConnection();
-            st = con.prepareStatement("INSERT INTO users VALUES(username, hashed_password)");
+            st = con.prepareStatement("INSERT INTO users (username,password) VALUES (?,?); ");
+            st.setString(1,username);
+            st.setString(2,hashed_password);
             st.executeQuery();
         } catch ( Exception e) {
             e.printStackTrace();

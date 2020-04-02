@@ -1,6 +1,6 @@
 DROP DATABASE sec_pw_db;
 CREATE DATABASE sec_pw_db;
-
+1
 
 CREATE TABLE users(
     user_id SERIAL NOT NULL,
