@@ -1,0 +1,28 @@
+html,body{
+    background:lightblue ;
+}
+
+.fancyfont{
+
+    font-family: "Impact";
+    text-align: center;
+    font-weight: bold;
+    background: blueviolet;
+
+}
+.footer{
+    position: fixed;
+    font-family: "Impact";
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    background: blueviolet;
+}
+.fancyheather{
+    font-size: 300%;
+    font-family: "Impact";
+    text-align: center;
+}
