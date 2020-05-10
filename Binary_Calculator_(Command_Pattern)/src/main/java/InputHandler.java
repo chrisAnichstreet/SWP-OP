@@ -90,7 +90,7 @@ public class InputHandler {
         try {
             Invoker.getInvo().getCommand().setValue(decimal);
         }catch(Exception e){
-            System.out.println("A Operation must me set bevor an Value is entered.");
+            System.out.println("A Operation must me set before an Value is entered.");
         }
     }
 }

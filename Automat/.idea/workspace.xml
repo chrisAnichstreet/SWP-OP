@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd04e7e2-44d4-46ae-9404-20ffd5ee5fa9" name="Default Changelist" comment="" />
+    <list default="true" id="bd04e7e2-44d4-46ae-9404-20ffd5ee5fa9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/out/artifacts/Secure_Password_Application_war_exploded/ajaxHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/out/artifacts/Secure_Password_Application_war_exploded/ajaxHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/src/main/java/htlinn/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/src/main/java/htlinn/login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/web/ajaxHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/web/ajaxHomePage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,15 +22,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1YfMfzpaJ2jw87ERTmFcPxUeOb0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -54,6 +67,7 @@
       <updated>1583329302935</updated>
       <workItem from="1583329306291" duration="1553000" />
       <workItem from="1583744978045" duration="9860000" />
+      <workItem from="1588697906864" duration="1514000" />
     </task>
     <servers />
   </component>

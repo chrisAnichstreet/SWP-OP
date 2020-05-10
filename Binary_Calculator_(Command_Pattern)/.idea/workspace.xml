@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8daae193-f1d8-4f82-b3f4-96990d865ca6" name="Default Changelist" comment="" />
+    <list default="true" id="8daae193-f1d8-4f82-b3f4-96990d865ca6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Automat/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Automat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Automat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/out/artifacts/Secure_Password_Application_war_exploded/ajaxHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/out/artifacts/Secure_Password_Application_war_exploded/ajaxHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/src/main/java/htlinn/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/src/main/java/htlinn/login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Secure_Password_Application/web/ajaxHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Secure_Password_Application/web/ajaxHomePage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +26,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1ZIE4eTtFEoMCToLPLiGL3Efj9K" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -23,8 +38,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.146875" />
@@ -61,6 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584518017460</updated>
       <workItem from="1584518022278" duration="13356000" />
+      <workItem from="1588757055873" duration="4246000" />
     </task>
     <servers />
   </component>

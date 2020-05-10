@@ -8,12 +8,14 @@ $(document).ready(function(){
 
             /* "this" sprich der value (=die Kategorie) aus der JSP wird nicht als id Festgelegt, Überprüfen*/
             //console.log($(this).html());
+            frage_id = "fizz";
+            answer_id = "buzz";
 
             $.ajax({
                 url:'homepage',
                 type: 'POST',
                 dataType: 'json',
-                data: {value:$("openPortal").html()},
+                data: {value:$("openPortal").html(), frage_id: frage_id, answer_id: answer_id},
                 success: function(data)
                 {
 
